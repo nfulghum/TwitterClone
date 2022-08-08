@@ -217,7 +217,7 @@ def show_likes(user_id):
     """Show user likes"""
 
     if not g.user:
-        flash("Access denied", "danger")
+        flash("Access unauthorized.", "danger")
         return redirect('/')
 
     user = User.query.get_or_404(user_id)
@@ -229,7 +229,7 @@ def add_like(message_id):
     """Toggle liked message for current user"""
 
     if not g.user:
-        flash("Access denied", "danger")
+        flash("Access unauthorized.", "danger")
         return redirect('/')
 
     liked_message = Message.query.get_or_404(message_id)
@@ -253,7 +253,7 @@ def edit_profile():
     """Update profile for current user."""
 
     if not g.user:
-        flash("Access denied", "danger")
+        flash("Access unauthorized.", "danger")
         return redirect('/')
 
     user = g.user
